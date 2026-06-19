@@ -10,6 +10,21 @@ local default_branch_protection_rule(pattern) =
 orgs.newOrg('automotive.hephaestus', 'eclipse-hephaestus') {
   settings+: {
     name: "Eclipse SDV Hephaestus project",
+    discussion_source_repository: "eclipse-hephaestus/hephaestus",
+    has_discussions: true,
+
+    custom_properties+: [
+      # This is used to categorize repositories for the auto-generated organization README file.
+      # The subcategory is optional and can be used to further categorize repositories. For example, "infrastructure.bazel" or "modules.communication".
+      orgs.newCustomProperty('category') {
+        description: "Category used to group repositories in the auto-generated organization README file",
+        value_type: "string",
+      },
+      orgs.newCustomProperty('subcategory') {
+        description: "Subcategory used to further group repositories within a category in the auto-generated organization README file",
+        value_type: "string",
+      },
+    ]
   },
 } + {
   # snippet added due to 'https://github.com/EclipseFdn/otterdog-configs/blob/main/blueprints/add-dot-github-repo.yml'
