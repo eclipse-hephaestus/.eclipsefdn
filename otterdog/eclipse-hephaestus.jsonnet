@@ -10,10 +10,6 @@ local default_branch_protection_rule(pattern) =
 orgs.newOrg('automotive.hephaestus', 'eclipse-hephaestus') {
   settings+: {
     name: "Eclipse SDV Hephaestus project",
-
-    has_discussions: true,
-    discussion_source_repository: "eclipse-hephaestus/hephaestus",
-
   },
 } + {
   # snippet added due to 'https://github.com/EclipseFdn/otterdog-configs/blob/main/blueprints/add-dot-github-repo.yml'
@@ -21,6 +17,20 @@ orgs.newOrg('automotive.hephaestus', 'eclipse-hephaestus') {
     orgs.newRepo('.github'),
     orgs.newRepo('hephaestus'){
       description: "Hephaestus project main repository",
+      allow_rebase_merge: false,
+      allow_merge_commit: false,
+      allow_squash_merge: true,
+      has_discussions: true,
+
+      gh_pages_build_type: "workflow",
+      homepage: "https://eclipse-hephaestus.github.io/hephaestus",
+
+      branch_protection_rules: [
+        default_branch_protection_rule('main')
+      ],
+    },
+    orgs.newRepo('website'){
+      description: "Eclipse SDV Hephaestus project website",
       allow_rebase_merge: false,
       allow_merge_commit: false,
       allow_squash_merge: true,
