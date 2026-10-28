@@ -68,7 +68,7 @@ orgs.newOrg('automotive.hephaestus', 'eclipse-hephaestus') {
       ]
     },
     orgs.newRepo('rules_bdeg'){
-      description: "Bazel Dependency Export Generator - Export Bazel C++ dependencies as CMake packages."
+      description: "Bazel Dependency Export Generator - Export Bazel C++ dependencies as CMake packages.",
       allow_rebase_merge: false,
       allow_merge_commit: false,
       allow_squash_merge: true,
