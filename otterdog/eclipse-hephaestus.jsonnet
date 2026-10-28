@@ -66,6 +66,18 @@ orgs.newOrg('automotive.hephaestus', 'eclipse-hephaestus') {
       branch_protection_rules: [
         default_branch_protection_rule('main')
       ]
+    },
+    orgs.newRepo('rules_bdeg'){
+      description: "Bazel Dependency Export Generator - Export Bazel C++ dependencies as CMake packages."
+      allow_rebase_merge: false,
+      allow_merge_commit: false,
+      allow_squash_merge: true,
+      has_discussions: true,
+      has_wiki: true,
+      gh_pages_build_type: "workflow",
+      branch_protection_rules: [
+        default_branch_protection_rule('main')
+      ],
     }    
   ],
 }
